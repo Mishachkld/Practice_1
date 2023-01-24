@@ -2,10 +2,12 @@
 #include "Encryption.hpp"
 
 int main() {
-//    std::string str;
-//    std::cin >> str;
-    en::Encryption myString("My fker n1gga gfdgfd fdg dfgfgfdf gdfg df gfdgfdgddfg");
+    std::string str;
+    std::getline(std::cin, str);
+
+    en::Encryption myString(str);
     myString.showKey();
     myString.writeKey();
     return 0;
 }
+

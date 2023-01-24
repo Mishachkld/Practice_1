@@ -51,7 +51,7 @@ namespace en {
         int customKey;
         for(int i = 0; i < sizeOfString; i++){
             std::cin >> customKey;
-            if (typeof(customKey) !=  )    // если тип является int то заменяем ключ.
+            if ()    // если тип является int то заменяем ключ.
                 key[i] = customKey;
         }
     }
