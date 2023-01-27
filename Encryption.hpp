@@ -19,11 +19,13 @@ namespace en {
         void encode();
         void decode();
         void showKey();
+        void showMessage();
 
     private:
         std::string _message;
         std::vector<int> fibSequence;
         std::vector<int> key;
+        std::vector<std::string> cutMessage;
         int sizeOfString;
         // Function
         void generateFib();
@@ -31,6 +33,7 @@ namespace en {
         bool isFib();
         void outError();
         void writeKey();
+        void splitString();
 
 
 

@@ -16,11 +16,23 @@ namespace en {
     void Encryption::encode() {
         generateFib();
         writeKey();
+        splitString();
+        for (int i = 0; i < sizeOfString; i++) {
+            for (int j = 0; j < sizeOfString; j++) {
+                if(key[i] == fibSequence[j]){
+                    std::swap(fibSequence[j],fibSequence[i]);
+                    std::swap(cutMessage[j], cutMessage[i]);
+                }
+            }
+        }
     }
 
     void Encryption::decode() {
 
     }
+
+
+    //===============================(＠＾◡＾)================================\\
 
     void Encryption::generateFib() {
         int tecNumber = 1;
@@ -30,9 +42,7 @@ namespace en {
             tecNumber = tecNumber + nextNumber;
             std::swap(tecNumber, nextNumber);
         }
-
     }
-    //===============================(＠＾◡＾)================================\\
 
     int Encryption::countWords() {
         int counter = 0;
@@ -72,6 +82,23 @@ namespace en {
 
     void Encryption::outError() {
         std::cout << std::endl << "Errorrrrrrrrrr...";
+    }
+
+    void Encryption::splitString() {
+        std::string cutString;
+        for(char j: _message){
+           if(j != ' ')
+               cutString.push_back(j);
+           else
+               cutMessage.push_back(cutString);
+        }
+    }
+
+    void Encryption::showMessage() {
+        for (int i = 0; i < sizeOfString; ++i) {
+            std::cout << cutMessage[i] << " "; // cutMessage не работает, нужно продебажить почему
+        }
+
     }
 
 
