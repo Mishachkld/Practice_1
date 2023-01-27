@@ -4,7 +4,10 @@
 
 
 #include <string>
+#include <iostream>
 #include <vector>
+#include <algorithm>
+#include <set>
 
 #pragma once
 
@@ -16,15 +19,19 @@ namespace en {
         void encode();
         void decode();
         void showKey();
-        void writeKey();
 
     private:
         std::string _message;
+        std::vector<int> fibSequence;
         std::vector<int> key;
         int sizeOfString;
         // Function
-        void generateFib(const int &endIndex);
+        void generateFib();
         int countWords();
+        bool isFib();
+        void outError();
+        void writeKey();
+
 
 
 
