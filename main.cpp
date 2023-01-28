@@ -9,6 +9,9 @@ int main() {
     en::Encryption myString(str);
     myString.showKey();
     myString.showMessage();
+	myString.decode();
+	myString.showKey();
+	myString.showMessage();
 
     return 0;
 }
