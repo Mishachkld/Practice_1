@@ -19,6 +19,7 @@ namespace en {
         void encode();
         void decode();
         void showKey();
+		void writeKey();
         void showMessage();
 
     private:
@@ -32,7 +33,6 @@ namespace en {
         int countWords();
         bool isFib();
         void outError();
-        void writeKey();
         void splitString();
 
 
