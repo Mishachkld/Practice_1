@@ -28,7 +28,14 @@ namespace en {
     }
 
     void Encryption::decode() {
-
+		for (int i = 0; i < sizeOfString; i++) {
+			for (int j = 0; j < sizeOfString; j++) {
+				if (fibSequence[i] < fibSequence[j]) {
+					std::swap(fibSequence[j], fibSequence[i]);
+					std::swap(cutMessage[j], cutMessage[i]);
+				}
+			}
+		}
     }
 
 
@@ -64,8 +71,10 @@ namespace en {
             std::cin >> customKey;
             key.push_back(customKey);
         }
-        if(!isFib())
-            outError();
+		if (!isFib()) {
+			outError();
+			key = fibSequence;
+		}
     }
 
     bool Encryption::isFib() {
@@ -81,7 +90,9 @@ namespace en {
     }
 
     void Encryption::outError() {
-        std::cout << std::endl << "Errorrrrrrrrrr...";
+        std::cout << std::endl << "Errorrrrrrrrrr... Change key";
+		generateFib();
+
     }
 
     void Encryption::splitString() {
@@ -89,15 +100,20 @@ namespace en {
         for(char j: _message){
            if(j != ' ')
                cutString.push_back(j);
-           else
-               cutMessage.push_back(cutString);
+		   else if(cutString != ""){
+			   cutMessage.push_back(cutString);
+			   cutString = "";
+		   }
         }
+		if (cutString != "")
+			cutMessage.push_back(cutString);
     }
 
     void Encryption::showMessage() {
         for (int i = 0; i < sizeOfString; ++i) {
-            std::cout << cutMessage[i] << " "; // cutMessage не работает, нужно продебажить почему
+            std::cout << cutMessage[i] << " "; 
         }
+		std::cout << std::endl;
 
     }
 
